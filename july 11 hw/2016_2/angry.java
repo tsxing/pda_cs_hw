@@ -5,6 +5,10 @@ class Main {
     static int N;
     static int bales[];
     public static void main(String[] args) {
+
+        System.setIn(new FileInputStream("angry.in"));
+        System.setOut(new PrintStream(new FileOutputStream("angry.out")));
+
         
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt(); 
