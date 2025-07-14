@@ -6,7 +6,7 @@ import java.lang.Math;
 class Main {
     static int N;
     static int bales[];
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.setIn(new FileInputStream("angry.in"));
         System.setOut(new PrintStream(new FileOutputStream("angry.out")));
