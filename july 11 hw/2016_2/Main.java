@@ -8,8 +8,8 @@ class Main {
     static int bales[];
     public static void main(String[] args) throws IOException {
 
-        System.setIn(new FileInputStream("angry.in"));
-        System.setOut(new PrintStream(new FileOutputStream("angry.out")));
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter pw = new PrintWriter(System.out);
 
         
         Scanner sc = new Scanner(System.in);
@@ -29,7 +29,9 @@ class Main {
                 ans = exploded;
             }
         }
-        System.out.print(ans);
+        pw.println(ans);
+        pw.close();
+        br.close();
         
     }
     
