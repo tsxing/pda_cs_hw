@@ -7,9 +7,9 @@ class Main {
     static int N;
     static int bales[];
     public static void main(String[] args) throws IOException {
-
-        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-		PrintWriter pw = new PrintWriter(System.out);
+	    
+	BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+	PrintWriter pw = new PrintWriter(System.out);
 
         
         Scanner sc = new Scanner(System.in);
