@@ -37,10 +37,10 @@ class Main {
     
     public static int right_most(int start){
         int last = start;
-        int r = 1;
+        int rad = 1;
         while (true){
             int neww = last;
-            while ((0 <= neww + 1 && neww + 1 < N) && (Math.abs(bales[neww + 1] - bales[last]) <= r)){
+            while ((0 <= neww + 1 && neww + 1 < N) && (Math.abs(bales[neww + 1] - bales[last]) <= rad)){
                 neww++;
                 
             }
@@ -48,17 +48,17 @@ class Main {
                 break;
             }
             last= neww;
-            r++;
+            rad++;
         }
         return last;
     }
     
     public static int left_most(int start){
         int last = start;
-        int r = 1;
+        int rad = 1;
         while (true){
             int neww = last;
-            while ((0 <= neww - 1 && neww - 1 < N) && (Math.abs(bales[neww - 1] - bales[last]) <= r)){
+            while ((0 <= neww - 1 && neww - 1 < N) && (Math.abs(bales[neww - 1] - bales[last]) <= rad)){
                 neww--;
                 
             }
@@ -66,7 +66,7 @@ class Main {
                 break;
             }
             last= neww;
-            r++;
+            rad++;
         }
         return last;
     }
