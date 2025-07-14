@@ -22,9 +22,9 @@ class Main {
         int ans = 1;
         
         for (int i=0;i<N;i++){
-            int r = right_most(i);
-            int l = left_most(i);
-            int exploded = r- l+1;
+            int r_amt = right_most(i);
+            int l_amt = left_most(i);
+            int exploded = r_amt- l_amt+1;
             if (exploded >ans){
                 ans = exploded;
             }
