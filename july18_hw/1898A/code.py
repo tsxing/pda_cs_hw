@@ -25,3 +25,6 @@ for _ in range(t):
             print(ind+1, "B")
         else:
             print(ind+1,"A")
+
+
+# Milica and String problem
