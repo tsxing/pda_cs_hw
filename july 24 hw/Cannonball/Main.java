@@ -29,17 +29,16 @@ public class Main {
                 }
             }
 
-            curr_pos+= curr_dir * curr_pow;
-            next_pos = curr_pos + curr_dir * curr_pow;
+            curr_pos += curr_dir * curr_pow;
         }
 
         int cnt = 0;
         for (boolean hit : line) {
-            if (hit){
+            if (hit) {
                 cnt++;
             }
         }
 
-        System.out.println(count);
+        System.out.println(cnt);
     }
 }
