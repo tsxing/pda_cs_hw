@@ -8,9 +8,9 @@ for _ in range(n):
     r = int(input())
     log.append(r)
     
-ans = 1000000
+ans = 10000000000000
 for start_door in range(n):
-    dist = 0;
+    dist = 0
     tot = sum(log) # total cows
     remaining = tot #cows remaining
     for r in range(n):
