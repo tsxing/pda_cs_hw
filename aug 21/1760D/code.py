@@ -1,5 +1,5 @@
 def solve(a):
-    # compress same elements
+    # compress the same elements
     b = [a[0]]
     for i in range(1, len(a)):
         if a[i] != a[i-1]:
