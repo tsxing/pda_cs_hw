@@ -8,7 +8,7 @@ for _ in range(4):
 
 
 
-
+# usaco
 def solve(word,order):
     for i in range(len(order)):
         if word[i] in blocks[order[i]]:
