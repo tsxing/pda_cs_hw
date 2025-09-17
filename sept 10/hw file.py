@@ -30,7 +30,7 @@ for _ in range(t):
 
 
 #https://codeforces.com/problemset/problem/1559/C
-didn't understand
+#didn't understand, but i figure that if a[n] == 0, it can work. Also, if a[1] == 1, then n+1 can get to 1, so it also works. not that sure for the middle though
 
 
 # this is for reverse engineering
@@ -78,4 +78,6 @@ for _ in range(t):
                 print("LIE")
         if len(offvals) <= 1 and len(onvals) <= 1:
             break
+
+
 
