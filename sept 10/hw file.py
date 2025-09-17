@@ -31,17 +31,3 @@ for _ in range(t):
 
 #https://codeforces.com/problemset/problem/1559/C
 didn't understand
-
-#this was a problem we did in class I think
-#https://codeforces.com/problemset/problem/1826/A 
-t = int(input())
-for _ in range(t):
-    n = int(input())
-    a = list(map(int, input().split()))
-    ans =-1
-    for x in range(n+1):
-        cnt = sum(1 for v in a if x >= v)
-        if cnt ==n - x:
-            ans =x
-            break
-    print(ans)
