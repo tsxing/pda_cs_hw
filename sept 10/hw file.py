@@ -31,3 +31,51 @@ for _ in range(t):
 
 #https://codeforces.com/problemset/problem/1559/C
 didn't understand
+
+
+# this is for reverse engineering
+t = int(input())
+for _ in range(t):
+    n, m = map(int, input().split())
+    inputs = []
+    results = []
+    for _ in range(m):
+        s = input().strip()
+        inputs.append(s[:-1])
+        results.append(s[-1])
+    programs = [i for i in range(m)]
+    while True:
+        updated = False
+        for i in range(n):
+            if updated:
+                break
+            offvals, offinputs, onvals, oninputs = set(), [], set(), []
+            for j in programs:
+                if inputs[j][i] == '1':
+                    onvals.add(results[j])
+                    oninputs.append(j)
+                else:
+                    offvals.add(results[j])
+                    offinputs.append(j)
+            if len(offvals) <= 1 and len(onvals) <= 1:
+                print("OK")
+                break
+            if len(offvals) == 0 or len(onvals) == 0:
+                continue
+            if len(offvals) == 2 and len(onvals) == 2:
+                continue
+            if len(offvals) == 1:
+                updated = True
+                programs = oninputs
+            elif len(onvals) == 1:
+                updated = True
+                programs = offinputs
+            else:
+                print("LIE")
+                break
+        else:
+            if not updated:
+                print("LIE")
+        if len(offvals) <= 1 and len(onvals) <= 1:
+            break
+
