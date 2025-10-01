@@ -1,0 +1,162 @@
+Bronze Topics Review:
+https://codeforces.com/contest/1829/problem/C 
+
+for _ in range(int(input())):
+   first = []
+   second = []
+   both = []
+   n = int(input())
+   for _ in range(n):
+       m, s = map(str, input().split())
+       m = int(m)
+       if s=="01":
+           second.append([m,s])
+       if s=="10":
+           first.append([m,s])
+       if s=="11":
+           both.append([m,s])
+       #print(first,second,both)
+      
+   first = sorted(first,key=lambda x: (x[0]))
+   second = sorted(second,key=lambda x: (x[0]))
+   both = sorted(both,key=lambda x: (x[0]))
+ 
+      
+   if len(both)>0 and len(first)>0 and len(second)>0:
+       if first[0][0]+second[0][0]>both[0][0]:
+           print(both[0][0])
+       else:
+           print(first[0][0]+second[0][0])
+   elif len(both)>0 and len(first)>0 and len(second)==0:
+       print(both[0][0])
+   elif len(both)>0 and len(second)>0 and len(first)==0:
+       print(both[0][0])
+   elif len(both)>0 and len(first)==0 and len(second)==0:
+       print(both[0][0])
+   elif len(both)==0 and len(first)>0 and len(second)==0:
+       print(-1)
+   elif len(both)==0 and len(first)==0 and len(second)>0:
+       print(-1)
+   elif len(both)==0 and len(first)==0 and len(second)==0:
+       print(-1)
+   else:
+       print(first[0][0]+second[0][0])
+
+
+
+https://codeforces.com/problemset/problem/1800/D
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    s = input().strip()
+    
+    dup = 0
+    for i in range(n - 2):
+        if s[i] == s[i+2]:
+            dup += 1
+    
+    print((n - 1) - dup)
+
+https://codeforces.com/problemset/problem/1741/C
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    prefix = 0
+    ans = n  
+    
+    for i in range(n):
+        prefix += a[i]
+        target = prefix
+        cur = 0
+        length = 0
+        maxlen = i + 1  
+        ok = True
+        
+        cur = 0
+        length = 0
+        for j in range(i+1, n):
+            cur += a[j]
+            length += 1
+            if cur == target:
+                if length > maxlen:
+                    maxlen = length
+                cur = 0
+                length = 0
+            elif cur > target:
+                ok = False
+                break
+        
+        if ok and cur == 0:
+            if maxlen < ans:
+                ans = maxlen
+    
+    print(ans)
+
+Prefix Sum Problems:
+https://codeforces.com/contest/433/problem/B
+n = int(input())
+v = list(map(int, input().split()))
+
+pref1 = [0]*(n+ 1)
+for i in range(n):
+    pref1[i+1] = pref1[i]+ v[i]
+
+u = sorted(v)
+
+pref2 = [0]*(n+ 1)
+for i in range(n):
+    pref2[i+1] = pref2[i]+ u[i]
+
+m = int(input())
+for _ in range(m):
+    typ, l, r = map(int, input().split())
+    if typ == 1:
+        print(pref1[r]- pref1[l-1])
+    else:
+        print(pref2[r]- pref2[l-1])
+https://usaco.org/index.php?page=viewproblem2&cpid=691 (maybe Ray can explain)
+n = int(input())
+fj = [input().strip() for _ in range(n)]
+
+idx = {'H':0, 'P':1, 'S':2}
+beat = {0:2, 1:0, 2:1}
+
+pref = [[0] * (n+1) for _ in range(3)]
+for i in range(1, n+1):
+    for g in range(3):
+        pref[g][i] = pref[g][i-1]
+    pref[idx[fj[i-1]]][i] += 1
+
+ans = 0
+for i in range(0, n+1):
+    best_before = 0
+    best_after = 0
+    for g in range(3):
+        b = beat[g]
+        before = pref[b][i]
+        after = pref[b][n] - pref[b][i]
+        if before > best_before:
+            best_before = before
+        if after > best_after:
+            best_after = after
+    ans = max(ans, best_before + best_after)
+
+print(ans)
+
+https://codeforces.com/contest/1398/problem/C
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    s = input().strip()
+    pref = 0
+    freq = {}
+    freq[0] = 1
+    ans = 0
+    for i in range(n):
+        pref += int(s[i])
+        key = pref - (i+1)
+        ans += freq.get(key, 0)
+        freq[key] = freq.get(key, 0)+ 1
+    print(ans)
+
